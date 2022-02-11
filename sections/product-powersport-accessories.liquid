@@ -1,0 +1,155 @@
+{% assign current_product = product.selected_or_first_available_variant %}
+
+<div class="product-template product-template--powersportaccessories">
+  <div class="product-template__inner">
+    <div class="cardheader">
+      <a href="/products/{{ product.handle }}"><span class="cardheadertext">{{product.title}} - PowerSport Accessories</span></a>
+    </div>
+
+    <div class="cardcontainer">
+      <div class="cardImg">
+       
+           {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+        {% if featured_media != blank %}
+          <img src="{{ featured_media | img_url: 'master' }}" alt="{{ featured_media.alt }}">
+        {% else %}
+                  <img src="{{'RZRAccessories.jpg' | asset_url}}">
+        {% endif %}
+         
+
+
+      
+      </div>
+      <div class="product_content">
+
+      {% if product.description != blank %}
+            
+            
+            {{ product.description }}
+        
+
+        {% else %}
+
+            {%comment%} <p>When Hypertech began developing tuning for the Polaris RZRs, we knew we wanted to enter the market with a full line of quality accessories to go along with our Power Programmer. There is such enthusiasm in the marketplace for these UTVs that it’s difficult to find a reputable brand that supplies quality parts across the board. We used our own experience and testing feedback from actual RZR owners to make sure our accessories are designed right, and built to last. Our parts are engineered with features and upgrades over the competition, just like our tuning.</p>{%endcomment%}
+
+
+        {% endif %}
+
+
+     
+        <p>For complete product information click <a href="/pages/polaris-powersports">Here</a></p>
+       <!-- <p><b>PowerSport Accessories available for your vehicle:</b></p>--> 
+
+        <div class="product-info manuals-content">
+         
+          <div class="product-info--title">
+            {{product.title}}
+          </div>
+          
+          
+          
+        </div>
+
+
+ <div class="btncontainer">
+
+
+          <div class="product-info--form item-btn atc-btn">
+            <form action="/cart/add" method="post">
+              <input type="hidden" name="id" value="{{ current_product.id }}" />
+              <input type="hidden" id="quantity" name="quantity" value="1"/>
+              <input type="submit" value="Buy It Now" class="btn" />
+            </form>
+          </div>
+
+       
+      {% if product.metafields.accentuate.installation_manual %}
+        <div class="item-btn">
+              <a class="btn" target="_blank" href="{{ product.metafields.accentuate.installation_manual }}">Installation Manual</a>
+        </div>
+      {% endif %}
+
+
+        
+      {% if product.metafields.accentuate.video_label %}
+                  <div class="item-btn">
+                      <a class="btn" id="myBtn" href="#">{{ product.metafields.accentuate.video_label }}</a>
+                </div>
+        {% endif %}
+</div>
+
+
+    
+
+        <div class="collection--lists" style="display: none;">
+          {% for product in collections['powersport-accessories'].products %}
+          <div class="collection-list">
+            <div class="collection-list--title">
+              {{ product.title }}
+            </div>
+            <div class="collection-list--form">
+              <form action="/cart/add" method="post">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
+                <input type="hidden" id="quantity" name="quantity" value="1"/>
+                <input type="submit" value="Buy It Now" class="btn" />
+              </form>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+    <div id="Legacy-Popup" class="overlay">
+        <div class="popup-1">		
+	        <a class="close" href="#">×</a>
+	        <div class="content">
+
+          {% if product.metafields.accentuate.videos %}
+
+             {{ product.metafields.accentuate.videos }}
+                
+                
+                
+           
+          {% endif %}
+
+
+	        </div>
+        </div>
+    </div>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("Legacy-Popup");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+  modal.style.visibility = "visible";
+  modal.style.opacity = "1";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>   

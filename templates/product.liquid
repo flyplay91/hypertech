@@ -1,0 +1,102 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %} 
+
+  {% if product.tags contains '
+  
+  ' %}
+    {% section 'product-template-1' %}
+  {% elsif product.tags contains 'Part-3350' %}
+     {% section 'product-template-17' %} 
+      {% elsif product.tags contains 'Max-Energy-5000' %}
+    {% section 'product-template-19' %}
+  {% elsif product.tags contains 'Max Energy' %}
+    {% section 'product-template-14' %}
+  {% elsif product.tags contains 'Interceptor-Enhanced' %}
+     {% section 'product-template-18' %}
+  {% elsif product.tags contains 'Interceptor' %} 
+     {% section 'product-template-16' %}  
+  {% elsif product.tags contains 'Max-Energy-JK' %}
+    {% section 'product-template-20' %}
+  {% elsif product.tags contains 'Max-Energy-JK-CA' %}
+    {% section 'product-template-21' %}
+  {% elsif product.tags contains 'Max Energy 2.0' %}
+    {% section 'product-template-3' %}
+  {% elsif product.tags contains 'Speedometer Calibrators' %}
+    {% section 'product-template-4' %}
+  {% elsif product.tags contains 'REACT Performance' %}
+    {% section 'product-template-5' %}
+  {% elsif product.tags contains 'REACT Tow' %}
+    {% section 'product-template-6' %}
+  {% elsif product.tags contains 'REACT Off-Road' %}
+    {% section 'product-template-7' %}
+  {% elsif product.tags contains 'PowerSport Accessories' %}
+     {% section 'product-powersport-accessories' %}
+  {% elsif product.tags contains 'Spectrum' %}
+    {% section 'product-template-2' %}
+  {% elsif product.tags contains 'Spectrum Speedometer Calibrator' %}
+    {% section 'product-template-8' %}
+  {% elsif product.tags contains 'Spectrum Powersports' %}
+     {% section 'product-template-10' %}
+  {% elsif product.tags contains 'Spectrum Powersports California' %}
+     {% section 'product-template-11' %}
+  {% elsif product.tags contains 'Spectrum California Edition' %}
+     {% section 'product-template-12' %}
+  {% elsif product.tags contains 'Max Energy 2.0 California Emission Legal' %}
+     {% section 'product-template-13' %}
+  {% elsif product.tags contains 'PowerChip' or 'Fuel Pump' or 'PowerCoil' or 'Replacement Rotor' or 'Accessories'%}
+     {% section 'product-template-15' %}
+  {% else %}
+    {% section 'product-template-0' %}
+  {% endif %}
+
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.featured_media -%}
+    {%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
+    "image": [
+      {{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {%- if current_variant.sku != blank -%}
+    "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+  "brand": {
+    "@type": "Thing",
+    "name": {{ product.vendor | json }}
+  },
+  "offers": [
+    {%- for variant in product.variants -%}
+      {
+        "@type" : "Offer",
+        {%- if variant.sku != blank -%}
+          "sku": {{ variant.sku | json }},
+        {%- endif -%}
+        "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency" : {{ cart.currency.iso_code | json }},
+        "url" : {{ shop.url | append: variant.url | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>

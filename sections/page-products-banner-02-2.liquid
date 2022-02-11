@@ -1,0 +1,58 @@
+<div class="container">
+	<h2 class="page-products-section-title">Click Feature Icon For More Details</h2>
+
+	<ul class="page-products-section-tabs">
+		{% for block in section.blocks %}
+			<li data-content="{{ forloop.index }}" class="{% if forloop.first %}active{% endif %}">
+				{% if block.settings.image != blank %}
+	        <img class="lazyload js"
+	             src="{{ block.settings.image | img_url: '10x' }}"
+	             data-src="{{ block.settings.image | img_url: 'master' }}">
+	        <noscript>
+	          <img src="{{ block.settings.image | img_url }}"
+	               srcset="{{ block.settings.image | img_url }} 1x, {{ block.settings.image | img_url: scale: 2 }} 2x">
+	        </noscript>
+	      {% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="page-products-section-content">
+		{% for block in section.blocks %}
+			<div data-tab="{{ forloop.index }}" class="card {% if forloop.first %}active{% endif %}">
+				{{ block.settings.html | raw }}
+			</div>
+		{% endfor %}
+	</div>
+
+</div>
+
+{% render 'popup-shift' %}
+{% render 'popup-throttle' %}
+
+
+{% schema %}
+{
+  "name": "Products Features 022",
+  "class": "page-products-section page-products-features-section",
+  "max_blocks": 30,
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature Image"
+        },
+        {
+          "type": "html",
+          "id": "html",
+          "label": "Feature Text"
+        }
+      ]
+    }
+	]
+}
+{% endschema %}

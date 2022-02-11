@@ -1,0 +1,588 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign compare_at_price = current_variant.compare_at_price -%}
+{%- assign price = current_variant.price -%}
+
+<!-- Spectrum California Edition // product-template-11.liquid -->
+
+<div class="product-template product-template--2 spectrum-reg">
+
+  <div class="product-template__inner">
+    <h2 class="product-title">{{product.title}}</h2>
+    <div class="cardheader">
+      <a href="/products/{{ product.handle }}"><span class="cardheadertext">{{product.title}}</span></a>
+    </div>
+  
+    <div class="cardcontainer">
+      <div class="cardImg">
+       
+       
+       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+        {% if featured_media != blank %}
+          <img src="{{ featured_media | img_url: 'master' }}" alt="{{ featured_media.alt }}">
+        {% else %}
+                          <img src="{{'Spectrum.jpg' | asset_url}}">
+
+        {% endif %}
+       
+       
+       
+      
+      </div>
+      <div class="product_content">
+       
+        
+
+        {% if product.description != blank %}
+            
+            {{ product.description }}
+        
+
+        {% else %}
+
+          <p>The Spectrum Max Energy Power Programmer installs Hypertech's custom developed tuning which adds maximum power and performance for any kind of driving! The larger backlit LCD screen provides quick and easy setup, and user-friendly navigation for simple navigation of the tuning features, and diagnostic tool features.
+</p>
+
+          <p>For complete product and feature information click <a target="_blank" href="/pages/max-energy-spectrum">Here</a></p>
+
+
+        {% endif %}
+
+       
+
+        {% if product.metafields.accentuate.emissions %}
+                <p><b>Emissions Certifications: {{ product.metafields.accentuate.emissions }}</b></p>
+                {% else %}
+                
+                 <p><b>Emissions Certifications: Not for sale or use in California</b></p>
+               
+        {% endif %}
+
+        {% if product.metafields.accentuate.california_eo %}
+                <p><b>California E.O.: {{ product.metafields.accentuate.california_eo }}</b></p>
+                {% else %}
+        {% endif %}
+
+        
+        <div class="feature_wrapper">
+          
+   <div class="ul-2col">
+              {% if product.metafields.accentuate.featured_description %}
+                        
+
+                {{ product.metafields.accentuate.featured_description }}
+
+                        {% else %}
+                <ul style="columns: 2;-webkit-columns: 2;-moz-columns: 2;">
+                              <li>Performance Tuning</li>
+                              <li>Intake Tuning</li>
+                             <li> WOT Fueling</li>
+                              <li>Torque Management</li>
+                             <li> Cooling Fan Adjustments</li>
+                             <li> Rev Limiter Adjustment</li>
+                             <li> Engine Idle Adjustment</li>
+                             <li> 2 Foot Limiter</li>
+                             <li> Top Speed Adjustment</li>
+                             <li> Speedometer Correction</li>
+                             <li> Return Back To Factory Settings</li>
+                             <li> Diagnostic Trouble Codes (DTCs)</li>
+                             <li> Internet Updateable</li>
+                  </ul>
+
+              {% endif %}
+</div>
+          
+        </div>
+        
+        <label class="toggle-more-txt">+ Feature Details</label>
+        <div class="featured-details-container">
+        <div class="featured-details-txt">
+          
+
+            {% if product.metafields.accentuate.featured_details %}
+                      
+                      {{ product.metafields.accentuate.featured_details }}
+
+                    {% else %}
+ 
+                    <p><strong> Performance Tuning</strong>
+                              <ul>
+                                <li>Check by Year Make Model</li>
+                              </ul>
+                             </p>
+
+
+                               <p><strong>Intake Tuning</strong>
+                              <ul>
+                                <li>Cold Air Intake tuning is not required </li>
+                              </ul>
+                             </p>
+
+                              <p><strong>WOT Fueling</strong>
+                              <ul>
+                                <li>Adjustability is not required </li>
+                              </ul>
+                             </p>
+                             
+                             <p> <strong>Torque Management</strong>
+                              <ul>
+                              <li>Throttle Response Low/High Mode: Belt, Mileage, Stock, Trail, Sport, Sport+, Race</li>
+                              
+                              
+                              </ul>
+                              </p>
+                              
+                             
+                             <p> <strong>Cooling Fan Adjustments</strong>
+                             <ul>
+                              <li>Cooling Fans Stock(205F), 175F, 185F, or 195F</li>
+                              </ul>
+                            </p>
+                              
+                            <p>
+                              <strong>Rev Limiter Adjustment</strong>
+                              <ul>
+                              <li>Rev Limit -500 to +500 RPM Above or Below Stock Value</li>
+                              </ul>
+                            </p>  
+                              
+                            <p>
+                              <strong>Engine Idle Adjustment</strong>
+                              <ul>
+                              <li>Idle Speed Adjustment +/-200RPM</li>
+                              </ul>
+                            </p>  
+
+                               <p>
+                              <strong>2 Foot Limiter</strong>
+                              <ul>
+                              <li>Stock, 5000RPM, or Disabled </li>
+                              </ul>
+                            </p>  
+                              
+
+                              
+
+                            
+
+                             <p>
+                              <strong>Top Speed Adjustment</strong>
+                              <ul>
+                             <li> Top Speed Limiter (Hi, Low) Lower, or Raise to Match Speed Rated Tires</li>
+
+                             <li>Top Speed Limiter (Seat Belt) Lower, or Raise to Match Speed Rated Tires</li>
+
+
+                             </ul>
+                             </p>
+
+                             <p>
+                              <strong>Speedometer Correction</strong>
+                              <ul>
+                              <li>Speedometer Correction For Tire Sizes 24-54 inches 1/4 inch increments</li>
+
+                                <li>Portal Correction Correct Speedometer for Portal Gearing</li>
+
+                              </ul>
+                            </p>
+                            
+                        
+
+                            <p>
+                              <strong>Return Back To Factory Settings</strong>
+                              <ul>
+                              <li>Return Back To Stock</li>
+                              </ul>
+                            </p>
+
+                            <p>
+                              <strong>Diagnostic Trouble Codes (DTCs)</strong>
+                              <ul>
+                              <li>DTCs Read and Clear</li>
+                              
+                              <strong>Internet Updateable</strong>
+                              <ul>
+                              <li>Internet Updateable</li>
+                              </ul>
+                            </p>
+                      
+
+                {% endif %}
+         
+            
+          <br>
+                          
+            <b style="font-size:small">WARNING: Cancer and reproductive harm. Visit www.p65warnings.ca.gov</b></ul>
+        </div>
+        </div>
+      </div>
+  </div>
+
+    <div class="btncontainer">
+
+     <div class="item-btn atc-btn">
+        {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+          {% unless product.has_only_default_variant %}
+            <div class="product-form__controls-group">
+              {% for option in product.options_with_values %}
+                <div class="selector-wrapper js product-form__item">
+                  <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                    {{ option.name }}
+                  </label>
+                  <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
+                    id="SingleOptionSelector-{{ forloop.index0 }}"
+                    data-index="option{{ forloop.index }}"
+                  >
+                    {% for value in option.values %}
+                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endfor %}
+            </div>
+          {% endunless %}
+
+          <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}"
+                {%- if variant == current_variant %} selected="selected" {%- endif -%}
+              >
+                {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+              </option>
+            {% endfor %}
+          </select>
+
+          {% if section.settings.show_quantity_selector %}
+            <div class="product-form__controls-group">
+              <div class="product-form__item">
+                <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" id="Quantity-{{ section.id }}"
+                  name="quantity" value="1" min="1" pattern="[0-9]*"
+                  class="product-form__input product-form__input--quantity" data-quantity-input
+                >
+              </div>
+            </div>
+          {% endif %}
+
+          <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden"
+            data-error-message-wrapper
+            role="alert"
+          >
+            <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+            {% include 'icon-error' %}
+            <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
+          </div>
+
+          <div class="product-form__controls-group product-form__controls-group--submit">
+            <div class="product-form__item product-form__item--submit
+              
+              {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
+            >
+              <button type="submit" name="add"
+                {% unless current_variant.available %} aria-disabled="true"{% endunless %}
+                aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+                class="btn product-form__cart-submit{% if  product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
+                {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
+                data-add-to-cart>
+                <span data-add-to-cart-text>
+                  {% unless current_variant.available %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% else %}
+                    Buy it Now
+                  {% endunless %}
+                </span>
+                <span class="hide" data-loader>
+                  {% include 'icon-spinner' %}
+                </span>
+              </button>
+            </div>
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="item-btn">
+        <a class="btn" target="_blank" href="/pages/where-to-buy">Where to buy</a>
+      </div>
+
+      <!-- Instruction Manual -->
+      {% if product.metafields.accentuate.instruction_manual_link %}
+        <div class="item-btn">
+              <a class="btn" target="_blank" href="{{ product.metafields.accentuate.instruction_manual_link }}">Instruction Manual</a>
+        </div>
+        {% else %} 
+          <div class="item-btn">
+                <a class="btn" target="_blank" href="https://www.webservice99.com/hypertech/ProductManuals/spectrum/SPECTRUM_RZR_INST.pdf">Instruction Manual</a>
+          </div>
+      {% endif %}
+
+
+      <!-- Download Software Link -->
+      {% if product.metafields.accentuate.download_update_software_link %}
+            <div class="item-btn">
+              <a class="btn" target="_blank" href="{{ product.metafields.accentuate.download_update_software_link }}">Download Update Software</a>
+            </div>
+
+            {% else %}
+
+            <div class="item-btn">
+              <a class="btn" target="_blank" href="https://www.webservice99.com/downloads/tunerupdateapplication/v2/current/Setup_web.exe">Download Update Software</a>
+            </div>
+      {%endif%} 
+
+
+      <!-- View Dyno Chart -->
+      {% if product.metafields.accentuate.dynourl %}
+        <div class="item-btn">
+              <a class="btn" href="{{ product.metafields.accentuate.dynourl }}" target="_blank">View Dyno Chart</a>
+              {%comment%}<a class="btn" target="_blank" href="/pages/dyno-charts">View Dyno Chart</a>{%endcomment%}
+        </div>
+      {% endif %}
+
+
+    </div>
+    <span class="pid-number">PID: {{ product.id }}</span>
+
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": {
+    "cs": "Stránky produktů",
+    "da": "Produktsider",
+    "de": "Produktseiten",
+    "en": "Product pages",
+    "es": "Páginas de productos",
+    "fi": "Tuotesivut",
+    "fr": "Pages de produits",
+    "it": "Pagine di prodotto",
+    "ja": "商品ページ",
+    "ko": "제품 페이지",
+    "nb": "Produktsider",
+    "nl": "Productpagina's",
+    "pl": "Strony produktu",
+    "pt-BR": "Páginas de produtos",
+    "pt-PT": "Páginas de produtos",
+    "sv": "Produktsidor",
+    "th": "หน้าสินค้า",
+    "tr": "Ürün sayfaları",
+    "vi": "Trang sản phẩm",
+    "zh-CN": "产品页面",
+    "zh-TW": "產品頁面"
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": {
+        "cs": "Zobrazit výběr množství",
+        "da": "Vis antalsvælger",
+        "de": "Mengenauswahl anzeigen",
+        "en": "Show quantity selector",
+        "es": "Mostrar selector de cantidad",
+        "fi": "Näytä määrän valitsin",
+        "fr": "Afficher le sélecteur de quantité",
+        "it": "Mostra selettore quantità",
+        "ja": "数量セレクターを表示する",
+        "ko": "수량 선택기 표시",
+        "nb": "Vis mengdevelger",
+        "nl": "Hoeveelheidskiezer weergeven",
+        "pl": "Pokaż selektor ilości",
+        "pt-BR": "Exibir seletor de quantidade",
+        "pt-PT": "Mostrar um seletor de quantidade",
+        "sv": "Visa kvantitetsväljare",
+        "th": "แสดงตัวเลือกจำนวน",
+        "tr": "Adet seçiciyi göster",
+        "vi": "Hiển thị hộp chọn số lượng",
+        "zh-CN": "显示数量选择器",
+        "zh-TW": "顯示數量選擇器"
+      },
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Multimédia",
+        "da": "Medie",
+        "de": "Medien",
+        "en": "Media",
+        "es": "Elementos multimedia",
+        "fi": "Media",
+        "fr": "Support multimédia",
+        "it": "Media",
+        "ja": "メディア",
+        "ko": "미디어",
+        "nb": "Medier",
+        "nl": "Media",
+        "pl": "Multimedia",
+        "pt-BR": "Mídia",
+        "pt-PT": "Multimédia",
+        "sv": "Media",
+        "th": "สื่อ",
+        "tr": "Medya",
+        "vi": "Nội dung đa phương tiện",
+        "zh-CN": "媒体",
+        "zh-TW": "媒體"
+      },
+      "info": {
+        "cs": "Další informace o [typech multimédií](https://help.shopify.com/manual/products/product-media)",
+        "da": "Få mere at vide om [media types](https://help.shopify.com/manual/products/product-media)",
+        "de": "Mehr Informationen über [Medientypen ](https://help.shopify.com/manual/products/product-media)",
+        "en": "Learn more about [media types](https://help.shopify.com/manual/products/product-media)",
+        "es": "Más información sobre [tipos de archivos multimedia](https://help.shopify.com/manual/products/product-media)",
+        "fi": "Lue lisää [mediatyypeistä](https://help.shopify.com/manual/products/product-media)",
+        "fr": "En savoir plus sur les [types de supports multimédia](https://help.shopify.com/manual/products/product-media)",
+        "it": "Scopri di più sulle [tipologie di file multimediali](https://help.shopify.com/manual/products/product-media)",
+        "ja": "[メディアのタイプ](https://help.shopify.com/manual/products/product-media) について詳しくはこちら",
+        "ko": "[미디어 유형](https://help.shopify.com/manual/products/product-media)에 대해 자세히 알아보기",
+        "nb": "Lær mer om [medietyper](https://help.shopify.com/manual/products/product-media)",
+        "nl": "Meer informatie over [mediatypen](https://help.shopify.com/manual/products/product-media)",
+        "pl": "Dowiedz się więcej o [typach multimediów](https://help.shopify.com/manual/products/product-media)",
+        "pt-BR": "Saiba mais sobre [tipos de mídia](https://help.shopify.com/manual/products/product-media)",
+        "pt-PT": "Saiba mais sobre [media types](https://help.shopify.com/manual/products/product-media)",
+        "sv": "Läs mer om [mediatyper](https://help.shopify.com/manual/products/product-media)",
+        "th": "ดูข้อมูลเพิ่มเติมเกี่ยวกับ [ประเภทของสื่อ](https://help.shopify.com/manual/products/product-media)",
+        "tr": "[Medya türleri](https://help.shopify.com/manual/products/product-media) hakkında daha fazla bilgi edinin",
+        "vi": "Tìm hiểu thêm về [loại phương tiện](https://help.shopify.com/manual/products/product-media)",
+        "zh-CN": "详细了解[媒体类型](https://help.shopify.com/manual/products/product-media)",
+        "zh-TW": "深入瞭解 [媒體類型](https://help.shopify.com/manual/products/product-media)"
+      }
+    },
+    {
+      "type": "select",
+      "id": "media_size",
+      "label": {
+        "cs": "Velikost",
+        "da": "Størrelse",
+        "de": "Größe",
+        "en": "Size",
+        "es": "Tamaño",
+        "fi": "Koko",
+        "fr": "Taille",
+        "it": "Dimensione",
+        "ja": "サイズ",
+        "ko": "사이즈",
+        "nb": "Størrelse",
+        "nl": "Grootte",
+        "pl": "Rozmiar",
+        "pt-BR": "Tamanho",
+        "pt-PT": "Tamanho",
+        "sv": "Storlek",
+        "th": "ขนาด",
+        "tr": "Boyut",
+        "vi": "Cỡ",
+        "zh-CN": "大小",
+        "zh-TW": "尺寸"
+      },
+      "options": [
+        {
+          "value": "small",
+          "label": {
+            "cs": "Malá",
+            "da": "Lille",
+            "de": "Klein",
+            "en": "Small",
+            "es": "Pequeño",
+            "fi": "Pieni",
+            "fr": "Petit",
+            "it": "Piccolo",
+            "ja": "スモール",
+            "ko": "스몰",
+            "nb": "Liten",
+            "nl": "Klein",
+            "pl": "Mały",
+            "pt-BR": "Pequeno",
+            "pt-PT": "Pequeno",
+            "sv": "Liten",
+            "th": "เล็ก",
+            "tr": "Küçük",
+            "vi": "Nhỏ",
+            "zh-CN": "小",
+            "zh-TW": "小型"
+          }
+        },
+        {
+          "value": "medium",
+          "label": {
+            "cs": "Střední",
+            "da": "Medium",
+            "de": "Mittel",
+            "en": "Medium",
+            "es": "Mediano",
+            "fi": "Keskisuuri",
+            "fr": "Moyenne",
+            "it": "Medio",
+            "ja": "中",
+            "ko": "보통",
+            "nb": "Middels",
+            "nl": "Gemiddeld",
+            "pl": "Średni",
+            "pt-BR": "Médio",
+            "pt-PT": "Médio",
+            "sv": "Medium",
+            "th": "ปานกลาง",
+            "tr": "Orta",
+            "vi": "Trung bình",
+            "zh-CN": "中等",
+            "zh-TW": "中等"
+          }
+        },
+        {
+          "value": "large",
+          "label": {
+            "cs": "Velká",
+            "da": "Stor",
+            "de": "Groß",
+            "en": "Large",
+            "es": "Grande",
+            "fi": "Suuri",
+            "fr": "Grande",
+            "it": "Grande",
+            "ja": "大",
+            "ko": "라지",
+            "nb": "Stor",
+            "nl": "Groot",
+            "pl": "Duży",
+            "pt-BR": "Grande",
+            "pt-PT": "Grande",
+            "sv": "Stor",
+            "th": "ใหญ่",
+            "tr": "Büyük",
+            "vi": "Lớn",
+            "zh-CN": "大",
+            "zh-TW": "大型"
+          }
+        },
+        {
+          "value": "full",
+          "label": {
+            "cs": "Plná šířka",
+            "da": "Fuld bredde",
+            "de": "Volle Breite",
+            "en": "Full-width",
+            "es": "Ancho completo",
+            "fi": "Täysi leveys",
+            "fr": "Pleine largeur",
+            "it": "Intera larghezza",
+            "ja": "全幅",
+            "ko": "전체 폭",
+            "nb": "Full bredde",
+            "nl": "Volledige breedte",
+            "pl": "Pełna szerokość",
+            "pt-BR": "Largura completa",
+            "pt-PT": "Largura completa",
+            "sv": "Full bredd",
+            "th": "เต็มความกว้าง",
+            "tr": "Tam genişlikli",
+            "vi": "Độ rộng đầy đủ",
+            "zh-CN": "全宽",
+            "zh-TW": "完整寬度"
+          }
+        }
+      ],
+      "default": "medium"
+    }
+  ]
+}
+{% endschema %}

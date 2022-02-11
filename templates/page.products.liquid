@@ -1,0 +1,79 @@
+{% case page.handle %}
+	
+	{% when 'max-energy-spectrum' %}
+		{% section 'page-products-banner-01' %}
+		{% section 'page-products-feature-01' %}
+
+	{% when 'polaris-powersports' %}
+		{% section 'page-products-banner-02' %}
+		{% section 'page-products-feature-02' %}
+		{% section 'page-products-feature-02-2' %}
+	
+	{% when 'speedometer-calibrator' %}
+		{% section 'page-products-banner-03' %}
+		{% section 'page-products-feature-03' %}
+
+	{% when 'spectrum-speedometer-calibrator-california' %}
+		{% section 'page-products-banner-15' %}
+		{% section 'page-products-feature-15' %}
+
+	{% when 'max-energy-2' %}
+		{% section 'page-products-banner-04' %}
+		{% section 'page-products-feature-04' %}
+
+	{% when 'max-energy-2-0-jeep-jk-edition' %}
+		{% section 'page-products-banner-05' %}
+		{% section 'page-products-feature-05' %}
+
+	{% when 'react-throttle-optimizer' %}
+		{% section 'page-products-banner-06' %}
+		{% section 'page-products-feature-06' %}
+
+	{% when 'inline-speedometer-calibrator' %}
+		{% section 'page-products-banner-07' %}
+		{% section 'page-products-feature-07' %}
+
+	{% when 'interceptor' %}
+		{% section 'page-products-banner-08' %}
+		{% section 'page-products-feature-08' %}
+
+	{% when 'max-energy' %}
+		{% section 'page-products-banner-09' %}
+		{% section 'page-products-feature-09' %}
+
+	{% when 'max-energy-sport' %}
+		{% section 'page-products-banner-10' %}
+		{% section 'page-products-feature-10' %}
+
+	{% when 'hyperpac' %}
+		{% section 'page-products-banner-11' %}
+		{% section 'page-products-feature-11' %}
+
+	{% when 'power-chips' %}
+		{% section 'page-products-banner-12' %}
+		{% section 'page-products-feature-12' %}
+
+	{% when 'accessories' %}
+		{% section 'page-products-banner-13' %}
+		{% section 'page-products-feature-13' %}
+
+	{% when 'hypertech-swag' %}
+		{% section 'page-products-banner-14' %}
+		{% section 'page-products-feature-14' %}
+
+	{% else %}
+		<div class="page-width">
+		  <div class="grid">
+		    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+		      <div class="section-header text-center">
+		        <h1>{{ page.title }}</h1>
+		      </div>
+
+		      <div class="rte">
+		        {{ page.content }}
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+{% endcase %}
