@@ -6,22 +6,20 @@
       <a href="/" class="text-link text-link--accent">
         {{ 'cart.general.continue_shopping' | t }}
       </a>
+        {% for item in cart.items %}
+          {% if item.product.tags contains 'no-ca' %}
+            <div class="shipping-restriction-message">
+              Notice: Some items in your cart may not be shippable to the State of California due to emission restrictions. Check product details for your year, make, model and engine type for more information. (tag)
+            </div>
+          {% endif %}
 
-      
-                      {% for item in cart.items %}
-                       
-                          {% if item.product.tags contains 'no-ca' %}
-
-                            <div class="shipping-restriction-message">
-                            Notice: Some items in your cart may not be shippable to the State of California due to emission restrictions. Check product details for your year, make, model and engine type for more information. (tag)
-                            </div>
-
-                          {% endif %}
-                    
-                    {% endfor %}
-
-
-    </div>
+          {% if item.product.metafields.accentuate.emissions == 'Not for sale or use in California' %}
+            <div class="shipping-not-sale-message" style="display: none;">
+              Notice: Not for sale or use in California
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     
 
     <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
