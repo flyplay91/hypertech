@@ -107,9 +107,47 @@ $(document).ready(function(){
 		//$(this).next('.featured-details-container').toggle();
 	});
 
+	$('body').on('click', '#addBtn', function() {
+		$(this).closest('.product-template').find('#Additional_Button').css({'display': 'block', 'visibility': 'visible', 'opacity': '1'});
+	});
+
+	$('body').on('click', '#Additional_Button .close', function() {
+		$('#Additional_Button').css('display', 'none');
+	});
+
  
 
+	// // Get the modal
+	// var addmodal = document.getElementById("Additional_Button");
+
+	// // Get the button that opens the modal
+	// var btn = document.getElementById("addBtn");
+
+	// // Get the <span> element that closes the modal
+	// var close = document.getElementsByClassName("close")[0];
+
+	// // When the user clicks the button, open the modal 
+	// btn.onclick = function() {
+	// 	addmodal.style.display = "block";
+	// 	addmodal.style.visibility = "visible";
+	// 	addmodal.style.opacity = "1";
+	// }
+
+	// // When the user clicks on <span> (x), close the modal
+	// close.onclick = function() {
+	// 	addmodal.style.display = "none";
+	// }
+
+	// // When the user clicks anywhere outside of the modal, close it
+	// window.onclick = function(event) {
+	// 	if (event.target == addmodal) {
+	// 		addmodal.style.display = "none";
+	// 	}
+	// }
+  
 
 
 }); 
+
+
 

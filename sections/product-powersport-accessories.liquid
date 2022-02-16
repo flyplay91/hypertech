@@ -70,12 +70,15 @@
       {% endif %}
 
 
-        
+      <!-- additional button -->
       {% if product.metafields.accentuate.video_label %}
                   <div class="item-btn">
                       <a class="btn" id="myBtn" href="#">{{ product.metafields.accentuate.video_label }}</a>
-                </div>
+                  </div>
         {% endif %}
+
+
+
 </div>
 
 
@@ -102,26 +105,26 @@
   </div>
 </div>
 
-<!-- The Modal -->
-    <div id="Legacy-Popup" class="overlay">
-        <div class="popup-1">		
-	        <a class="close" href="#">×</a>
-	        <div class="content">
+<!-- Additional Button - The Modal -->
+<div id="Legacy-Popup" class="overlay">
+      <div class="popup-1">		
+        <a class="close" href="#">×</a>
+        <div class="content">
 
-          {% if product.metafields.accentuate.videos %}
+        {% if product.metafields.accentuate.videos %}
 
-             {{ product.metafields.accentuate.videos }}
-                
-                
-                
-           
-          {% endif %}
+          {{ product.metafields.accentuate.videos }}
+              
+              
+              
+        
+        {% endif %}
 
 
-	        </div>
         </div>
-    </div>
-
+      </div>
+</div>
+<!-- End - The Modal -->
 
 
 <script>

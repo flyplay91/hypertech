@@ -340,6 +340,14 @@
         </div>
       {% endif %}
 
+            <!-- additional button -->
+      {% if product.metafields.accentuate.video_label %}
+                  <div class="item-btn">
+                      <a class="btn" id="myBtn" href="#">{{ product.metafields.accentuate.video_label }}</a>
+                  </div>
+        {% endif %}
+
+
 
     </div>
     <span class="pid-number">PID: {{ product.id }}</span>
@@ -347,6 +355,26 @@
   </div>
 </div>
 
+<!-- Additional Button - The Modal -->
+<div id="Legacy-Popup" class="overlay">
+      <div class="popup-1">		
+        <a class="close" href="#">×</a>
+        <div class="content">
+
+        {% if product.metafields.accentuate.videos %}
+
+          {{ product.metafields.accentuate.videos }}
+              
+              
+              
+        
+        {% endif %}
+
+
+        </div>
+      </div>
+</div>
+<!-- End - The Modal -->
 
 
 {% schema %}

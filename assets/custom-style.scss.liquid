@@ -3139,7 +3139,9 @@ form.cart {
 	}
 }
 
-#Legacy-Popup {
+#Legacy-Popup,
+#Powersports-Legacy-Popup,
+#Additional_Button, {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -3157,7 +3159,7 @@ form.cart {
 		border-radius: 5px;
 		width: 30%;
 		position: absolute;
-		top: 0px;
+		top: 10vh;
 		right: 0px;
 		left: 0px;
 		transition: all 1s ease-in-out;
@@ -3170,6 +3172,9 @@ form.cart {
 			}
 			a {
 				color: #333;
+					&:hover {
+						color:red;
+					}
 			}
 		}
 	}
@@ -3250,4 +3255,13 @@ form.cart {
 			text-transform:uppercase;
 		}
 	}
+}
+
+.template-product #Legacy-Popup .popup-1,
+#Additional_Button .popup-1 {
+	color:#000 !important;
+	width: 50% !important;
+		p {
+			color:#000;
+		}
 }
